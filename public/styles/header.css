@@ -1,0 +1,22 @@
+header {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  top: 120px;
+  background-color: #e3a6e6;
+  background-image: url("../images/header-background.png");
+}
+
+
+#avatar-image {
+  display: block;
+  margin: auto;
+  padding-top: 20px;
+  color: #FF0000;
+
+}
+
+#user-name {
+  text-align: center;
+}
+
