@@ -7,14 +7,33 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
+    <!-- Source Sans Pro Font -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Bungee Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
+    <!-- New Tweet CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- Char Count JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -23,9 +42,38 @@
     <nav>
       <span>tweeter</span>
     </nav>
+    
+    <header>
+      <div>
+        <img id="avatar-image" src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+        <h2 id="user-name"> <strong>First</strong> Last Name</h2>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        
+        <form action="/tweets/" method="POST">
+          <textarea id="tweet-text-area" name="text" rows="1" placeholder="What are you humming about?"></textarea>
+          <input id="tweet-submit-button" type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
+
+      <p>
+        Unpacked now declared put you confined daughter improved. Celebrated imprudence few interested especially reasonable off one. Wonder bed elinor family secure met. It want gave west into high no in. Depend repair met before man admire see and. An he observe be it covered delight hastily message. Margaret no ladyship endeavor ye to settling. 
+      </p>
+      <p>
+        Living valley had silent eat merits esteem bed. In last an or went wise as left. Visited civilly am demesne so colonel he calling. So unreserved do interested increasing sentiments. Vanity day giving points within six not law. Few impression difficulty his use has comparison decisively. 
+      </p>
+      <p>
+        Debating me breeding be answered an he. Spoil event was words her off cause any. Tears woman which no is world miles woody. Wished be do mutual except in effect answer. Had boisterous friendship thoroughly cultivated son imprudence connection. Windows because concern sex its. Law allow saved views hills day ten. Examine waiting his evening day passage proceed. 
+      </p>
     </main>
 
   </body>
