@@ -1,0 +1,38 @@
+#new-tweet {
+  position: relative;
+  width: 100%;
+
+}
+
+#tweet-text-area {
+  position: relative;
+  width: 100%;
+  /* height:10%; */
+  background-color: transparent;
+  border: transparent;
+  border-bottom: solid black 5px;
+  resize: none;
+  /* padding-bottom: 1%; */
+}
+
+#tweet-text-area::placeholder {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.counter{
+  position: absolute;
+  right: 0;
+  font-family: 'Bungee', cursive;
+}
+
+#tweet-submit-button {
+  background-color: #e3a6e6;
+  font-family: 'Bungee', cursive;
+  color: rgb(245, 245, 245);
+  text-shadow: black 1px 1px;
+}
+
+main section.new-tweet h2 {
+  font-family: 'Bungee', cursive;
+}
