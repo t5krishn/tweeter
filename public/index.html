@@ -15,22 +15,19 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
     <!-- Nav CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
     <!-- Header CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-
     <!-- New Tweet CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+     <!-- Tweet CSS -->
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-
     <!-- Char Count JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
@@ -43,7 +40,7 @@
       <span>tweeter</span>
     </nav>
     
-    <header>
+    <header id="main-header">
       <div>
         <img id="avatar-image" src="/images/profile-hex.png"> 
       </div>
@@ -65,15 +62,61 @@
         </form>
       </section>
 
-      <p>
-        Unpacked now declared put you confined daughter improved. Celebrated imprudence few interested especially reasonable off one. Wonder bed elinor family secure met. It want gave west into high no in. Depend repair met before man admire see and. An he observe be it covered delight hastily message. Margaret no ladyship endeavor ye to settling. 
-      </p>
-      <p>
-        Living valley had silent eat merits esteem bed. In last an or went wise as left. Visited civilly am demesne so colonel he calling. So unreserved do interested increasing sentiments. Vanity day giving points within six not law. Few impression difficulty his use has comparison decisively. 
-      </p>
-      <p>
-        Debating me breeding be answered an he. Spoil event was words her off cause any. Tears woman which no is world miles woody. Wished be do mutual except in effect answer. Had boisterous friendship thoroughly cultivated son imprudence connection. Windows because concern sex its. Law allow saved views hills day ten. Examine waiting his evening day passage proceed. 
-      </p>
+      <section id="tweet-list">
+
+        <article class="tweet">
+          <header>
+            <img class="tweet-avatar" src="https://i.imgur.com/nlhLi3I.png" height="50px" width=auto />
+            <h3 class="tweet-username">First Name</h3>
+            <h3 class="tweet-userhandle">@userName</h3>
+          </header>
+
+          <h4 class="tweet-content">Tweet content</h4>
+          
+          <footer>
+            <time>Time elapsed since tweet</time>
+            <img class="tweet-flag-btn" src="./images/icons/flag.png" height="20px" width=auto/>
+            <img class="tweet-retweet-btn" src="./images/icons/retweet.png" height="20px" width=auto/>
+            <img class="tweet-like-btn" src="./images/icons/like.png" height="20px" width=auto/>
+          </footer>
+        </article>
+
+        <article class="tweet">
+          <header>
+            <img class="tweet-avatar" src="https://i.imgur.com/nlhLi3I.png" height="50px" width=auto />
+            <h3 class="tweet-username">First Name</h3>
+            <h3 class="tweet-userhandle">@userName</h3>
+          </header>
+
+          <h4 class="tweet-content">Tweet content</h4>
+          
+          <footer>
+            <time>Time elapsed since tweet</time>
+            <img class="tweet-flag-btn" src="./images/icons/flag.png" height="20px" width=auto/>
+            <img class="tweet-retweet-btn" src="./images/icons/retweet.png" height="20px" width=auto/>
+            <img class="tweet-like-btn" src="./images/icons/like.png" height="20px" width=auto/>
+          </footer>
+        </article>
+
+        <article class="tweet">
+          <header>
+            <img class="tweet-avatar" src="https://i.imgur.com/nlhLi3I.png" height="50px" width=auto />
+            <h3 class="tweet-username">First Name</h3>
+            <h3 class="tweet-userhandle">@userName</h3>
+          </header>
+
+          <h4 class="tweet-content">Tweet content</h4>
+          
+          <footer>
+            <time>Time elapsed since tweet</time>
+            <img class="tweet-flag-btn" src="./images/icons/flag.png" height="20px" width=auto/>
+            <img class="tweet-retweet-btn" src="./images/icons/retweet.png" height="20px" width=auto/>
+            <img class="tweet-like-btn" src="./images/icons/like.png" height="20px" width=auto/>
+          </footer>
+        </article>
+      </section>
+      
+
     </main>
 
   </body>
