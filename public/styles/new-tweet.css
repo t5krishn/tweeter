@@ -36,3 +36,7 @@
 main section.new-tweet h2 {
   font-family: 'Bungee', cursive;
 }
+
+.red-text {
+  color: red;
+}

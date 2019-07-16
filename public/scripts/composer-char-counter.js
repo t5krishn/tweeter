@@ -8,13 +8,9 @@ $(document).ready(function() {
     let currentLen = 140 - textAreaLength;
 
     if (currentLen < 0) {
-      counterEle.css({
-        'color': 'red'
-      })
+      counterEle.addClass('red-text');
     } else {
-      counterEle.css({
-        'color': '#545149'
-      })
+      counterEle.removeClass('red-text');
     }
 
     counterEle.text((140 - textAreaLength).toString());
