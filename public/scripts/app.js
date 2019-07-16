@@ -6,18 +6,33 @@
 
 
 var getTime = function(date) {
-  var days;
+  var time;
   var currentDate = new Date();
 
+  // Convert differnece in milliseconds to difference in days
   var diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 *24)) - 1;
 
   if (diffDays == 1) {
-    days = '1 day ago';
+    time = '1 day ago';
+  } else if (diffDays > 30 && diffDays < 365) {
+    let months = Math.ceil(diffDays / 30);
+    if (months > 1){
+      time = `${months} months ago`;
+    } else {
+      time = `1 month ago`;
+    }
+  } else if (diffDays >  365){
+    let years = Math.ceil(diffDays / 365);
+    if (years > 1){
+      time = `${years} years ago`;
+    } else {
+      time = `1 year ago`;
+    }
   } else {
-    days = `${diffDays} days ago`;
+    time = `${diffDays} days ago`;
   }
 
-  return days;
+  return time;
 }
 
 
