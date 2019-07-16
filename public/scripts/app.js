@@ -5,12 +5,12 @@
  */
 
 
-var getTime = function(date) {
-  var time;
-  var currentDate = new Date();
+const getTime = function(date) {
+  const time;
+  const currentDate = new Date();
 
   // Convert differnece in milliseconds to difference in days
-  var diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 *24)) - 1;
+  const diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 *24)) - 1;
 
   if (diffDays == 1) {
     time = '1 day ago';
@@ -36,7 +36,7 @@ var getTime = function(date) {
 }
 
 
-var createTweetElement = function (tweet) {
+const createTweetElement = function (tweet) {
 
   // $article.append($header).append($footer);
   return `
@@ -64,9 +64,9 @@ var createTweetElement = function (tweet) {
 }
 
 
-var renderTweets = function(tweets) {
+const renderTweets = function(tweets) {
   for(oneTweet of tweets) {
-    var $tweet = createTweetElement(oneTweet);
+    const $tweet = createTweetElement(oneTweet);
     $('#tweet-list').append($tweet); 
   }
 }
