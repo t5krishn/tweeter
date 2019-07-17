@@ -5,25 +5,25 @@
  */
 
 
-const getTime = function(date) {
+const getTime = function (date) {
   let time;
   const currentDate = new Date();
 
   // Convert difference in milliseconds to difference in days
-  const diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 *24)) - 1;
+  const diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 * 24)) - 1;
 
   if (diffDays == 1) {
     time = '1 day ago';
   } else if (diffDays > 30 && diffDays < 365) {
     let months = Math.ceil(diffDays / 30);
-    if (months > 1){
+    if (months > 1) {
       time = `${months} months ago`;
     } else {
       time = `1 month ago`;
     }
-  } else if (diffDays >  365){
+  } else if (diffDays > 365) {
     let years = Math.ceil(diffDays / 365);
-    if (years > 1){
+    if (years > 1) {
       time = `${years} years ago`;
     } else {
       time = `1 year ago`;
@@ -36,10 +36,10 @@ const getTime = function(date) {
 }
 
 
-const formValidator = function(data) {
+const formValidator = function (data) {
   const tweet = data.slice(5);
-  if (tweet){
-    if(tweet.length > 140) {
+  if (tweet) {
+    if (tweet.length > 140) {
       return alert("Tweet is too long. It's called a tweet for a reason...");
     }
     else {
@@ -48,10 +48,10 @@ const formValidator = function(data) {
     }
   } else {
     return alert('Tweet is empty. Try again');
-  }  
+  }
 }
 
-const escape =  function(str) {
+const escape = function (str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -83,12 +83,12 @@ const createTweetElement = function (tweet) {
 }
 
 
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
   const $tweetList = $('#tweet-list');
   const listOfTweets = [];
-  for(let oneTweet of tweets) {
+  for (let oneTweet of tweets) {
     let $tweet = createTweetElement(oneTweet);
-    listOfTweets.unshift($tweet); 
+    listOfTweets.unshift($tweet);
   }
   $tweetList.append(listOfTweets.join(''));
 }
@@ -96,36 +96,37 @@ const renderTweets = function(tweets) {
 const loadTweets = function () {
   $.ajax('/tweets', {
     method: 'GET',
-    success : function() {
+    success: function () {
       console.log("GET was a success")
-    }
+    },
   }).then(function (res) {
     $('#tweet-list').empty();
     renderTweets(res);
   })
 }
 
-const formSubmit = function(data) {
-  $.ajax('/tweets/', { 
+const formSubmit = function (data) {
+
+  $.ajax('/tweets/', {
     method: 'POST',
     data,
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    success : function() {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    success: function () {
       console.log("POST was a success")
     }
   })
-  .then(function (res) {
-    loadTweets();
-  });
+    .then(function (res) {
+      loadTweets();
+    });
 };
 
 
-const addSubmitListener = function() {
-  $('#new-tweet-form').on('submit', function(event) {
+const addSubmitListener = function () {
+  $('#new-tweet-form').on('submit', function (event) {
     event.preventDefault();
     const data = $(this).serialize();
     const isValid = formValidator(data);
-    if(isValid) {
+    if (isValid) {
       formSubmit(isValid);
       $('#tweet-text-area').val('');
       $('.counter').text('140');
@@ -136,10 +137,10 @@ const addSubmitListener = function() {
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   loadTweets();
   addSubmitListener();
-  
+
 
 });
