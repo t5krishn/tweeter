@@ -61,7 +61,7 @@ const createTweetElement = function (tweet) {
         </div>
       </header>
       <h4 class="tweet-content">${tweet.content.text}</h4>
-      <footer class = "">
+      <footer>
         <div class="tweet-footer">
           <time class= "footer-elapsed-time">${getTime(tweet.created_at)}</time>
           <div class="tweet-btn-container">
