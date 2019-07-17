@@ -35,19 +35,37 @@ const getTime = function (date) {
   return time;
 }
 
+const renderError = function(errString) {
+  $('#new-tweet-error-container').append(`
+  <div id="new-tweet-error">
+    <img src="./images/icons/warning.png" alt="Warning Image" class="new-tweet-error-warning"/>
+    <div id ="new-tweet-error-message">
+      ${errString}
+    </div>
+    <img src="./images/icons/warning.png" alt="Warning Image" class="new-tweet-error-warning"/>
+  </div>
+  `);
+
+}
+
 
 const formValidator = function (data) {
   const tweet = data.slice(5);
   if (tweet) {
     if (tweet.length > 140) {
-      return alert("Tweet is too long. It's called a tweet for a reason...");
+      renderError("Tweet is too long. It's called a Tweet for a reason...");
+      $('#new-tweet-error-container').hide();
+      $('#new-tweet-error-container').slideDown(100);
+
     }
     else {
       // Valid tweet
       return data;
     }
   } else {
-    return alert('Tweet is empty. Try again');
+    renderError('Tweet is empty. Can you write something? Jeez...');
+    $('#new-tweet-error-container').hide();
+    $('#new-tweet-error-container').slideDown(100);
   }
 }
 
@@ -124,6 +142,7 @@ const formSubmit = function (data) {
 const addSubmitListener = function () {
   $('#new-tweet-form').on('submit', function (event) {
     event.preventDefault();
+    $('#new-tweet-error-container').slideUp(100);
     const data = $(this).serialize();
     const isValid = formValidator(data);
     if (isValid) {
