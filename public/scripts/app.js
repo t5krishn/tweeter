@@ -145,12 +145,12 @@ const addSubmitListener = function () {
     $('#new-tweet-error-container').slideUp(100);
     const data = $(this).serialize();
     const isValid = formValidator(data);
+
+    // formValidator fn takes care of rendering errors when tweet is invalid
     if (isValid) {
       formSubmit(isValid);
       $('#tweet-text-area').val('');
       $('.counter').text('140');
-    } else {
-      console.log('Invalid Tweet, alert will be called')
     }
   });
 }
