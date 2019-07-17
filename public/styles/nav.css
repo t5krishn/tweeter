@@ -25,4 +25,5 @@ nav {
 
 #nav-new-tweet-animated {
  cursor: pointer;
+ align-self: center;
 }
