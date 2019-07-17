@@ -5,6 +5,7 @@ const newTweetClickHandler = function(callback) {
       bottom: "+120",
       height: "toggle"
     }, 300, function() {
+      $('#tweet-text-area').focus();
     });
   });
 }
