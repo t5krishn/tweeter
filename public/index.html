@@ -30,7 +30,9 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <!-- Char Count JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <!-- New Tweet JS -->
+    <script type="text/javascript" src="/scripts/new-tweet.js"></script>
+    
 
   </head>
 
@@ -39,6 +41,12 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+        <div id="nav-new-tweet-container">
+          <span id="nav-new-tweet-label"> 
+            <strong>Write</strong> a new tweet
+          </span>
+          <img id="nav-new-tweet-animated" src="./images/icons/arrow-down.svg" alt="animated arrow down" height="10%" width="auto" />
+        </div>
     </nav>
     
     <header id="main-header">
@@ -59,8 +67,10 @@
         <!-- <form action="/tweets/" method="POST"> -->
         <form id="new-tweet-form">
           <textarea id="tweet-text-area" name="text" rows="1" placeholder="What are you humming about?"></textarea>
-          <input id="tweet-submit-button" type="submit" value="Tweet">
-          <span class="counter">140</span>
+          <div id="new-tweet-form-footer">
+            <input id="tweet-submit-button" type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </div>
         </form>
       </section>
 
