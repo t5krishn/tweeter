@@ -6,10 +6,10 @@
 
 
 const getTime = function(date) {
-  const time;
+  let time;
   const currentDate = new Date();
 
-  // Convert differnece in milliseconds to difference in days
+  // Convert difference in milliseconds to difference in days
   const diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 *24)) - 1;
 
   if (diffDays == 1) {
@@ -35,10 +35,22 @@ const getTime = function(date) {
   return time;
 }
 
+const formValidator = function(data) {
+  const tweet = data.slice(5);
+  if (tweet){
+    if(tweet.length > 140) {
+      return alert("Tweet is too long. It's called a tweet for a reason...");
+    }
+    else {
+      // Valid tweet
+      return true;
+    }
+  } else {
+    return alert('Tweet is empty. Try again');
+  }  
+}
 
 const createTweetElement = function (tweet) {
-
-  // $article.append($header).append($footer);
   return `
     <article class="tweet">
       <header>
@@ -65,46 +77,61 @@ const createTweetElement = function (tweet) {
 
 
 const renderTweets = function(tweets) {
+  const $tweetList = $('#tweet-list');
+  const listOfTweets = [];
   for(oneTweet of tweets) {
-    const $tweet = createTweetElement(oneTweet);
-    $('#tweet-list').append($tweet); 
+    let $tweet = createTweetElement(oneTweet);
+    listOfTweets.unshift($tweet); 
   }
+  $tweetList.append(listOfTweets.join(''));
 }
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+const loadTweets = function () {
+  $.ajax('/tweets', {
+    method: 'GET',
+    success : function() {
+      console.log("GET was a success")
+    }
+  }).then(function (res) {
+    $('#tweet-list').empty();
+    renderTweets(res);
+  })
+}
+
+const formSubmit = function(data) {
+  $.ajax('/tweets/', { 
+    method: 'POST',
+    data,
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    success : function() {
+      console.log("POST was a success")
+    }
+  })
+  .then(function (res) {
+    loadTweets();
+  });
+};
 
 
-
-
-
+const addSubmitListener = function() {
+  $('#new-tweet-form').on('submit', function(event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    if(formValidator(data)) {
+      formSubmit(data);
+      $('#tweet-text-area').val('');
+      $('.counter').text('140');
+    } else {
+      console.log('Invalid Tweet, alert will be called')
+    }
+  });
+}
 
 
 $(document).ready(function() {
 
-  renderTweets(data);
+  loadTweets();
+  addSubmitListener();
+  
 
 });
