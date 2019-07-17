@@ -35,6 +35,7 @@ const getTime = function(date) {
   return time;
 }
 
+
 const formValidator = function(data) {
   const tweet = data.slice(5);
   if (tweet){
@@ -43,11 +44,17 @@ const formValidator = function(data) {
     }
     else {
       // Valid tweet
-      return true;
+      return data;
     }
   } else {
     return alert('Tweet is empty. Try again');
   }  
+}
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
 
 const createTweetElement = function (tweet) {
@@ -60,7 +67,7 @@ const createTweetElement = function (tweet) {
           <h3 class="tweet-userhandle">${tweet.user.handle}</h3>
         </div>
       </header>
-      <h4 class="tweet-content">${tweet.content.text}</h4>
+      <h4 class="tweet-content">${escape(tweet.content.text)}</h4>
       <footer>
         <div class="tweet-footer">
           <time class= "footer-elapsed-time">${getTime(tweet.created_at)}</time>
@@ -79,7 +86,7 @@ const createTweetElement = function (tweet) {
 const renderTweets = function(tweets) {
   const $tweetList = $('#tweet-list');
   const listOfTweets = [];
-  for(oneTweet of tweets) {
+  for(let oneTweet of tweets) {
     let $tweet = createTweetElement(oneTweet);
     listOfTweets.unshift($tweet); 
   }
@@ -117,8 +124,9 @@ const addSubmitListener = function() {
   $('#new-tweet-form').on('submit', function(event) {
     event.preventDefault();
     const data = $(this).serialize();
-    if(formValidator(data)) {
-      formSubmit(data);
+    const isValid = formValidator(data);
+    if(isValid) {
+      formSubmit(isValid);
       $('#tweet-text-area').val('');
       $('.counter').text('140');
     } else {
