@@ -38,6 +38,7 @@ const getTime = function(date) {
 // Function that appends error element to error container and
 //    - hides it initally so the slide animation can be seen.
 const renderError = function(errString) {
+  $('#new-tweet-error-container').empty();
   $('#new-tweet-error-container').append(`
   <div id="new-tweet-error">
     <img src="./images/icons/warning.png" alt="Warning Image" class="new-tweet-error-warning"/>
