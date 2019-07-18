@@ -32,3 +32,13 @@ body {
   position: relative;
   top: 520px;
  }
+
+ #scroll-down {
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   cursor: pointer;
+   margin: 2%;
+   height: 7%;
+   width: auto;
+ }
