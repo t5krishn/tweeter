@@ -19,26 +19,43 @@ body {
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
+
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- main {
+main {
   width: 90%;
-  left: 5%;
+  margin-left: 5%;
   background-color: #f4f1ec;
-  position: relative;
-  top: 520px;
- }
+}
+ 
+@media (min-width: 800px) {
+  main {
+    width: 45%;
+    margin-top: 140px;
+    margin-left: 5%
+  }
 
- #scroll-down {
-   position: fixed;
-   bottom: 0;
-   right: 0;
-   cursor: pointer;
-   margin: 2%;
-   height: 7%;
-   width: auto;
- }
+  body {
+    /* width: 1250px; */
+  }
+}
+
+#scroll-down {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 2%;
+  height: 7%;
+  width: auto;
+}
