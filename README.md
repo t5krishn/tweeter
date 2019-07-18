@@ -5,10 +5,12 @@ Tweeter is a simple, single-page Twitter clone. It is built using HTML, CSS, jQu
 ## Final Product
 
 !["Screenshot of Main view"](https://github.com/t5krishn/tweeter/blob/master/docs/responsive-large-screen.png?raw=true)
-<img style="float: right;" src="https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/scroll-down.gif?raw=true">
+
 
 
 !["Screencapture of Tweet submission"](https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/tweet-submission.gif?raw=true)
+<img style="float: center;" src="https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/scroll-down.gif?raw=true">
+
 !["Screenshot of the character counter"](https://github.com/t5krishn/tweeter/blob/master/docs/long-tweet.png?raw=true)
 !["Screenshot of the character count error"](https://github.com/t5krishn/tweeter/blob/master/docs/long-tweet-error.png?raw=true)
 !["Screenshot of the empty tweet error"](https://github.com/t5krishn/tweeter/blob/master/docs/empty-tweert-error.png?raw=true)
