@@ -1,5 +1,5 @@
 
-const newTweetClickHandler = function(callback) {
+const newTweetClickHandler = function() {
   $('#nav-new-tweet-container').on('click', function(event) {
     $('.new-tweet').animate({
       height: "toggle",
@@ -11,7 +11,5 @@ const newTweetClickHandler = function(callback) {
 
 
 $(document).ready(function() {
-  newTweetClickHandler(moveNewTweetSection);
-
-
+  newTweetClickHandler();
 });
