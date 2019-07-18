@@ -6,10 +6,9 @@ Tweeter is a simple, single-page Twitter clone. It is built using HTML, CSS, jQu
 
 !["Screenshot of Main view"](https://github.com/t5krishn/tweeter/blob/master/docs/responsive-large-screen.png?raw=true)
 
+!["Screencapture of Tweet submission"](https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/tweet-submission.gif?raw=true)
 
 <img style="float: right;" src="https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/long-tweet-error.gif?raw=true" />
-
-!["Screencapture of Tweet submission"](https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/tweet-submission.gif?raw=true)
 
 !["Screencapture of long tweet error"](https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/scroll-down.gif?raw=true)
 
