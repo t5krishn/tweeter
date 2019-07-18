@@ -1,40 +1,42 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+  app.js
+  Main client side js file that handles tweet rendering, AJAX requests,
+  error rendering and time duration calculation
+*/
 
-
-const getTime = function (date) {
-  let time;
+// Function that extracts the date and returns a string with the appropriate
+//    - elapsed time in an appropriate time denomination
+const getTime = function(date) {
+  let time = '';
   const currentDate = new Date();
+  const diffTimes = currentDate - date;
 
-  // Convert difference in milliseconds to difference in days
-  const diffDays = Math.ceil((currentDate - date) / (1000 * 60 * 60 * 24)) - 1;
+  // Convert difference in milliseconds to different time denominations
+  const diffSeconds = [Math.round(diffTimes / 1000), 'second'];
+  const diffMins = [Math.round(diffSeconds[0] / 60), 'minute'];
+  const diffHours = [Math.round(diffMins[0] / 60), 'hour'];
+  const diffDays = [Math.round(diffHours[0] / 24), 'day'];
+  const diffMonths = [Math.round(diffDays[0] / 30.42), 'month'];
+  const diffYears = [Math.round(diffMonths[0] / 12), 'year'];
+  // console.log(diffSeconds, diffMins, diffHours, diffDays, diffMonths, diffYears);
+  const timeDenoms = [diffYears, diffMonths, diffDays, diffHours, diffMins, diffSeconds];
 
-  if (diffDays == 1) {
-    time = '1 day ago';
-  } else if (diffDays > 30 && diffDays < 365) {
-    let months = Math.ceil(diffDays / 30);
-    if (months > 1) {
-      time = `${months} months ago`;
-    } else {
-      time = `1 month ago`;
+  for (let denom of timeDenoms) {
+    if (denom[0]) {
+      if (denom[0] === 1) {
+        time += `${denom[0]} ${denom[1]} `;
+      } else {
+        time += `${denom[0]} ${denom[1]}s `;
+      }
+      break;
     }
-  } else if (diffDays > 365) {
-    let years = Math.ceil(diffDays / 365);
-    if (years > 1) {
-      time = `${years} years ago`;
-    } else {
-      time = `1 year ago`;
-    }
-  } else {
-    time = `${diffDays} days ago`;
   }
 
-  return time;
-}
+  return time + 'ago';
+};
 
+// Function that appends error element to error container and
+//    - hides it initally so the slide animation can be seen.
 const renderError = function(errString) {
   $('#new-tweet-error-container').append(`
   <div id="new-tweet-error">
@@ -45,37 +47,41 @@ const renderError = function(errString) {
     <img src="./images/icons/warning.png" alt="Warning Image" class="new-tweet-error-warning"/>
   </div>
   `);
+  $('#new-tweet-error-container').hide();
+  $('#new-tweet-error-container').slideDown(100);
+};
 
-}
-
-
-const formValidator = function (data) {
+// Function that validates form input
+//    - return the data or
+//    - calls error funtion to rendor error message
+const formValidator = function(data) {
   const tweet = data.slice(5);
+  // Check for empty string or null
   if (tweet) {
     if (tweet.length > 140) {
       renderError("Tweet is too long. It's called a Tweet for a reason...");
-      $('#new-tweet-error-container').hide();
-      $('#new-tweet-error-container').slideDown(100);
-
-    }
-    else {
+    // Case for if the tweet is less than 140 characters and not an empty string
+    } else {
       // Valid tweet
       return data;
     }
+    // Case when the tweet is an empty string or null
   } else {
     renderError('Tweet is empty. Can you write something? Jeez...');
-    $('#new-tweet-error-container').hide();
-    $('#new-tweet-error-container').slideDown(100);
   }
-}
+};
 
-const escape = function (str) {
+// Escape function that is used to make sure user is not
+//  entering in html code which we will insert and
+//  cause problems. Eg: Script tags
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
-const createTweetElement = function (tweet) {
+// Creating each individual tweet element given a tweet object
+const createTweetElement = function(tweet) {
   return `
     <article class="tweet">
       <header>
@@ -98,10 +104,12 @@ const createTweetElement = function (tweet) {
       </footer>
     </article>
       `;
-}
+};
 
 
-const renderTweets = function (tweets) {
+// Renders tweets by looping through array of tweet objects and
+//  - appending to #tweet-list element
+const renderTweets = function(tweets) {
   const $tweetList = $('#tweet-list');
   const listOfTweets = [];
   for (let oneTweet of tweets) {
@@ -109,38 +117,40 @@ const renderTweets = function (tweets) {
     listOfTweets.unshift($tweet);
   }
   $tweetList.append(listOfTweets.join(''));
-}
+};
 
-const loadTweets = function () {
+// Ajax function that GET's the tweets as a JSON
+const loadTweets = function() {
   $.ajax('/tweets', {
     method: 'GET',
-    success: function () {
-      console.log("GET was a success")
+    success: function() {
+      console.log("GET was a success");
     },
-  }).then(function (res) {
+  }).then(function(res) {
     $('#tweet-list').empty();
     renderTweets(res);
-  })
-}
+  });
+};
 
-const formSubmit = function (data) {
-
+// AJAX function POST that sends the form data after validating it
+const formSubmit = function(data) {
   $.ajax('/tweets/', {
     method: 'POST',
     data,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    success: function () {
-      console.log("POST was a success")
+    success: function() {
+      console.log("POST was a success");
     }
   })
-    .then(function (res) {
+    .then(function() {
       loadTweets();
     });
 };
 
-
-const addSubmitListener = function () {
-  $('#new-tweet-form').on('submit', function (event) {
+// Adds a submit event to the form element that will validate data, and send
+//  - escaped form data to the AJAX POST function
+const addSubmitListener = function() {
+  $('#new-tweet-form').on('submit', function(event) {
     event.preventDefault();
     $('#new-tweet-error-container').slideUp(100);
     const data = $(this).serialize();
@@ -153,13 +163,14 @@ const addSubmitListener = function () {
       $('.counter').text('140');
     }
   });
-}
+};
 
 
-$(document).ready(function () {
+// Document.ready function will load the tweets initially and add the submit
+//  - listener to accept any form submits
+$(document).ready(function() {
 
   loadTweets();
   addSubmitListener();
-
 
 });
