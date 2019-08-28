@@ -2,8 +2,10 @@ header#main-header {
   height: 400px;
   width: 100%;
   margin-top: 120px;
-  background-color: #e3a6e6;
-  background-image: url("../images/header-background.png");
+  border: white 1px solid;
+  border-bottom:  #4056A1 4px solid;
+  /* background-color: #4056A1; */
+  /* background-image: url("../images/header-background.png"); */
 }
 
 @media (min-width: 800px) {
@@ -11,15 +13,19 @@ header#main-header {
     width: 40%;
     margin-top: 180px;
     margin-left: 5%;
+    border-radius: 30px;
+    border: #4056A1 4px solid;
+
   }
 }
 
 #avatar-image {
   display: block;
   margin: auto;
-  padding-top: 20px;
+  margin-top: 20px;
   color: #FF0000;
-
+  border-radius: 30%;
+  box-shadow: 10px 5px 5px #4056A1;
 }
 
 #user-name {
