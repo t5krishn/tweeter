@@ -30,7 +30,7 @@
 }
 
 #tweet-submit-button {
-  background-color: #e3a6e6;
+  background-color: #4056A1;
   font-family: 'Bungee', cursive;
   color: rgb(245, 245, 245);
   text-shadow: black 1px 1px;
@@ -38,8 +38,8 @@
 }
 
 #tweet-submit-button:hover {
-  background-color: #322c85;
-  box-shadow: 1px 1px 1px black;
+  background-color: #0b97ce;
+  box-shadow: 2px 2px 2px black;
 }
 
 #new-tweet-error {
