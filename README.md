@@ -1,20 +1,32 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. It is built using HTML, CSS, jQuery, Flexbox and AJAX. The server side was provided, therefore the focus of this project was to polish up CSS and HTML styling along with incoporating JS functionality into the front-end.
+Tweeter is a simplistic, single-page Twitter clone. It is built using HTML, CSS, jQuery, Flexbox and AJAX. The The focus of this project was to polish up CSS and HTML styling along with incoporating JS functionality into the front-end.
 
 ## Final Product
 
-!["Screenshot of Main view"](https://github.com/t5krishn/tweeter/blob/master/docs/responsive-large-screen.png?raw=true)
+!["Screenshot of Main view"](https://github.com/t5krishn/tweeter/blob/master/docs/main_view.png?raw=true)
 
-!["Screencapture of Tweet submission"](https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/tweet-submission.gif?raw=true)
+!["Screenshot of Responsive view"](https://github.com/t5krishn/tweeter/blob/master/docs/responseive_view.png?raw=true)
 
-<img style="float: right;" src="https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/long-tweet-error.gif?raw=true" />
+!["Screenshot of Responsive and error"](https://github.com/t5krishn/tweeter/blob/master/docs/responsive_error.png?raw=true)
 
-!["Screencapture of long tweet error"](https://github.com/t5krishn/tweeter/blob/master/docs/screen-captures/scroll-down.gif?raw=true)
 
-!["Screenshot of the character counter"](https://github.com/t5krishn/tweeter/blob/master/docs/long-tweet.png?raw=true)
-!["Screenshot of the character count error"](https://github.com/t5krishn/tweeter/blob/master/docs/long-tweet-error.png?raw=true)
-!["Screenshot of the empty tweet error"](https://github.com/t5krishn/tweeter/blob/master/docs/empty-tweert-error.png?raw=true)
+
+## Learning milestones
+
+- Creating a NodeJS application to focus on jQuery/front-end javascript and styling
+- Understand styling conventions and use Flexbox when needed
+- Use AJAX calls to interface with a local database and render the returned information
+
+
+
+## Create your own Tweeter
+
+1. Clone this repo using to get a local copy using:<br>
+`git clone https://github.com/t5krishn/tweeter.git`
+2. Install dependencies using the `npm install` command.
+3. Start the web server using `npm run local` <br>
+4. Go to <http://localhost:8080/> in your favourite browser.
 
 ## Dependencies
 
@@ -24,9 +36,4 @@ Tweeter is a simple, single-page Twitter clone. It is built using HTML, CSS, jQu
 - express : ^4.13.4
 - md5 : ^2.1.0
 
-## Getting Started
-
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+#### If you have any feedback or want to get in touch, feel free to send me an email at [t5krishn@gmail.com](mailto:t5krishn@gmail.com)
