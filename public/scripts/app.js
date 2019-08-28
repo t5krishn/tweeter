@@ -31,8 +31,8 @@ const getTime = function(date) {
       break;
     }
   }
-
-  return time + 'ago';
+  return time.length ? time + 'ago' : '1 second ago'
+  // return time + 'ago';
 };
 
 // Function that appends error element to error container and
@@ -87,7 +87,7 @@ const createTweetElement = function(tweet) {
     <article class="tweet">
       <header>
         <div>
-          <img class="tweet-avatar" src=${tweet.user.avatars} height="50px" width=auto />
+          <img class="tweet-avatar" src=${tweet.user.avatars} />
           <h3 class="tweet-username">${tweet.user.name}</h3>
           <h3 class="tweet-userhandle">${tweet.user.handle}</h3>
         </div>
@@ -97,9 +97,9 @@ const createTweetElement = function(tweet) {
         <div class="tweet-footer">
           <time class= "footer-elapsed-time">${getTime(tweet.created_at)}</time>
           <div class="tweet-btn-container">
-            <img class="tweet-btn tweet-flag" src="./images/icons/flag.png" height="20px" width=auto/>
-            <img class="tweet-btn tweet-retweet" src="./images/icons/retweet.png" height="20px" width=auto/>
-            <img class="tweet-btn tweet-like" src="./images/icons/like.png" height="20px" width=auto/>
+            <img class="tweet-btn tweet-flag" src="./images/icons/flag.png" />
+            <img class="tweet-btn tweet-retweet" src="./images/icons/retweet.png" />
+            <img class="tweet-btn tweet-like" src="./images/icons/like.png" />
           </div>
         </div>
       </footer>
