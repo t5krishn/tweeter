@@ -23,7 +23,7 @@ section#tweet-list article.tweet{
 }
 
 section#tweet-list article.tweet:hover {
-  box-shadow: 10px 10px #e3a6e6;
+  box-shadow: 10px 10px #4056A1;
   opacity: 1;
 }
 
@@ -36,12 +36,13 @@ article header .tweet-username{
   margin-left: -1%;
 }
 
-.tweet-content{
+.tweet-content {
   position: relative;
   width: 98%;
   margin-left: 1%;
   padding: 1%;
   border-bottom: solid black 2px;
+  overflow-wrap: break-word;
 }
 
 .tweet-userhandle {
@@ -58,7 +59,16 @@ section#tweet-list article.tweet:hover .tweet-userhandle {
 }
 
 .tweet-btn-container {
-  padding-right: 1%;
+  padding-right: 3%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  /* padding: 1%; */
+}
+
+.tweet-btn {
+  padding: 3%;
 }
 
 .footer-elapsed-time {
