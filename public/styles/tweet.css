@@ -1,7 +1,6 @@
 section#tweet-list {
   position: relative;
   width: 100%;
-  /* border: solid black 2px; */
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -69,10 +68,12 @@ section#tweet-list article.tweet:hover .tweet-userhandle {
 
 .tweet-btn {
   padding: 3%;
+  height: 20px;
+  width: auto;
 }
 
 .footer-elapsed-time {
-  position: relative;
+
   margin-bottom: 1%;
   margin-left: 1%;
 }
