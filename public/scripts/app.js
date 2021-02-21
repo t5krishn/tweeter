@@ -170,9 +170,6 @@ const addSubmitListener = function() {
 // Document.ready function will load the tweets initially and add the submit
 //  - listener to accept any form submits
 $(document).ready(function() {
-
-  $('#avatar-image-container').append(`<img id="avatar-image" src="https://api.adorable.io/avatars/235/${new Date()}">`)
-  
   loadTweets();
   addSubmitListener();
 });
